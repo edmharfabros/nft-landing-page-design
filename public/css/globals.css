@@ -38,3 +38,7 @@
   box-sizing: border-box;
   font-size:16px;
 }
+
+.section {
+  opacity: 0;
+}
