@@ -46,10 +46,12 @@ const HomePage = () => {
         <link rel="preload" as="image" href="/images/hero-img-mobile.png" />
         <link rel="preload" as="image" href="/images/hero-img-desktop.png" />
       </Head>
+
       <div className="font-inter relative">
+
         <nav className="desktop:px-[5rem] desktop:flex px-[2rem] pt-[2rem] flex items-center justify-between">
           <div className="h-[3rem]">
-            <Image src={logo} />
+            <Image alt="nft landing page logo" src={logo} />
           </div>
           <div className="desktop:animate-onload-title desktop:flex desktop:flex-row hidden">
             <p className="font-inter text-[1.25rem] leading-[1rem] text-dark">Features</p>
@@ -62,10 +64,10 @@ const HomePage = () => {
           </div>
         </nav>
         <div className="animate-onload-section desktop:hidden absolute top-[6.875rem] right-0 h-[17.375rem] w-[11.125rem]">
-          <img alt="robot with 2 eyes" className="" src={`/images/hero-img-mobile.png`} />
+          <img alt="robot with 2 eyes" src={`/images/hero-img-mobile.png`} />
         </div>
         <div className="animate-onload-section desktop:block desktop:right-[16%] hidden absolute top-[13.375rem] right-0 h-[32.4375rem] w-[20.5rem]">
-          <img alt="robot with 2 eyes" className="" src={`/images/hero-img-desktop.png`} />
+          <img alt="robot with 2 eyes" src={`/images/hero-img-desktop.png`} />
         </div>
         <div className="animate-onload-title desktop:pl-[5rem] desktop:pr-[50%] desktop:pb-[12.5rem] desktop:pt-[11.375rem] relative px-[2rem] pt-[5rem] pr-[30%] pb-[5rem] desktop:min-h-[calc(100vh_-_5rem)]">
           <p className="desktop:text-[1.25rem] desktop:pb-[1rem] pb-[1.5rem] font-inter-bold text-pink">LAUNCHING SOON</p>
@@ -78,10 +80,10 @@ const HomePage = () => {
           <p className="leading-[1.5rem] text-[1.25rem]">Sign up today and you’ll get a free NFT when we launch.</p>
         </div>
         <div data-animation="animate-onload-title" className="section desktop:mx-[5rem] desktop:py-[7.5rem] desktop:grid-cols-4 pt-[3.5rem] pb-[3.5rem] px-[2rem] grid grid-cols-2 auto-cols-fr grid-flow-column gap-[1.6875rem]">
-          <Image src={companyBoom} />
-          <Image src={companyQrco} />
-          <Image src={companyBlimp} />
-          <Image src={companyDroplet} />
+          <Image alt="Boom company logo" src={companyBoom} />
+          <Image alt="QRCO company logo" src={companyQrco} />
+          <Image alt="Blimp company logo" src={companyBlimp} />
+          <Image alt="Droplet company logo" src={companyDroplet} />
         </div>
         <div data-animation="animate-onload-section" className="section  desktop:mx-[5rem] mx-[2rem]">
           <h1 className="desktop:mb-[1.5rem] font-inter-medium text-[2.5rem] leading-[3rem] mb-[1rem] ">
@@ -166,21 +168,21 @@ const HomePage = () => {
         <div data-animation="animate-onload-title" className="section desktop:flex desktop:justify-between desktop:mx-[5rem] pt-[4rem] mx-[2rem]">
           <div className="desktop:w-[40%] w-full">
             <div className="h-[3rem]">
-              <Image src={logo} />
+              <Image alt="nft landing page logo" src={logo} />
             </div>
             <p className="mt-[1.875rem] font-inter text-[1.25rem] leading-[1rem] text-dark">Exclusive NFT Collection</p>
             <div className="mt-[2rem] flex desktop:flex-row desktop:flex-column">
               <div >
-                <Image src={fbIcon} />
+                <Image alt="fb icon logo" src={fbIcon} />
               </div>
               <div className="ml-[1rem]">
-                <Image src={twitterIcon} />
+                <Image alt="twitter icon logo" src={twitterIcon} />
               </div>
               <div className="ml-[1rem]">
-                <Image src={igIcon} />
+                <Image alt="instagram icon logo" src={igIcon} />
               </div>
               <div className="ml-[1rem]">
-                <Image src={tiktokIcon} />
+                <Image alt="tiktok icon logo" src={tiktokIcon} />
               </div>
             </div>
           </div>
