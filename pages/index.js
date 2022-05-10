@@ -43,8 +43,15 @@ const HomePage = () => {
   return (
     <>
       <Head>
+        <title>NFT Landing Page | Sample Design</title>
         <link rel="preload" as="image" href="/images/hero-img-mobile.png" />
         <link rel="preload" as="image" href="/images/hero-img-desktop.png" />
+        <link rel="preload" as="font" href="/fonts/Inter-Regular.ttf" crossOrigin="anonymous" />
+        <link rel="preload" as="font" href="/fonts/Inter-Black.ttf" crossOrigin="anonymous" />
+        <link rel="preload" as="font" href="/fonts/Inter-Medium.ttf" crossOrigin="anonymous" />
+        <link rel="preload" as="font" href="/fonts/Inter-Bold.ttf" crossOrigin="anonymous" />
+        <link rel="preload" as="font" href="/fonts/Inter-SemiBold.ttf" crossOrigin="anonymous" />
+
       </Head>
 
       <div className="font-inter relative">
@@ -60,7 +67,7 @@ const HomePage = () => {
             <p className="ml-[1.75rem] font-inter text-[1.25rem] leading-[1rem] text-pink">Sign Up</p>
           </div>
           <div className="desktop:hidden flex">
-            <Image src={harmburgerIcon} />
+            <Image alt="mobile menu" src={harmburgerIcon} />
           </div>
         </nav>
         <div className="animate-onload-section desktop:hidden absolute top-[6.875rem] right-0 h-[17.375rem] w-[11.125rem]">
@@ -97,7 +104,7 @@ const HomePage = () => {
           <div className="grid grid-flow-col auto-cols-[minmax(18.125rem,1fr)] grid-cols-[repeat(auto-fill,minmax(18.125rem,1fr))] gap-[1.6875rem]">
             <div className="">
               <div className="relative h-[17.375rem] w-[100%] ">
-                <Image className="rounded-t-[1rem]" src={nftThumbnail} layout="fill" objectFit='cover' />
+                <Image alt="nft product thumbnail" className="rounded-t-[1rem]" src={nftThumbnail} layout="fill" objectFit='cover' />
               </div>
               <div className="bg-[#EEEEEE] rounded-b-[1rem] p-[1.5rem]">
                 <div className="flex items-center justify-between mb-[0.75rem]">
@@ -116,7 +123,7 @@ const HomePage = () => {
             </div>
             <div className="">
               <div className="relative h-[17.375rem] w-[100%]">
-                <Image className="rounded-t-[1rem]" src={nftThumbnail} layout="fill" objectFit='cover' />
+                <Image alt="nft product thumbnail" className="rounded-t-[1rem]" src={nftThumbnail} layout="fill" objectFit='cover' />
               </div>
               <div className="bg-[#EEEEEE] rounded-b-[1rem] p-[1.5rem]">
                 <div className="flex items-center justify-between mb-[0.75rem]">
@@ -135,7 +142,7 @@ const HomePage = () => {
             </div>
             <div className="">
               <div className="relative h-[17.375rem] w-[100%]">
-                <Image className="rounded-t-[1rem]" src={nftThumbnail} layout="fill" objectFit='cover' />
+                <Image alt="nft product thumbnail" className="rounded-t-[1rem]" src={nftThumbnail} layout="fill" objectFit='cover' />
               </div>
               <div className="bg-[#EEEEEE] rounded-b-[1rem] p-[1.5rem]">
                 <div className="flex items-center justify-between mb-[0.75rem]">

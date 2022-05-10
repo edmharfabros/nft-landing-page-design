@@ -4,32 +4,32 @@
 
 @font-face {
   font-family: "InterRegular";
-  src: url("../fonts/Inter-Regular.ttf");
+  src: url("/fonts/Inter-Regular.ttf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "InterBlack";
-  src: url("../fonts/Inter-Black.ttf");
+  src: url("/fonts/Inter-Black.ttf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "InterMedium";
-  src: url("../fonts/Inter-Medium.ttf");
+  src: url("/fonts/Inter-Medium.ttf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "InterBold";
-  src: url("../fonts/Inter-Bold.ttf");
+  src: url("/fonts/Inter-Bold.ttf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "InterSemiBold";
-  src: url("../fonts/Inter-SemiBold.ttf");
-}
-
-@font-face {
-  font-family: "InterSemiBold";
-  src: url("../fonts/Inter-SemiBold.ttf");
+  src: url("/fonts/Inter-SemiBold.ttf");
+  font-display: swap;
 }
 
 *,html,body {
