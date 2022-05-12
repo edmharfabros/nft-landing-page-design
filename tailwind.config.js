@@ -7,7 +7,10 @@ module.exports = {
     animation: {
       "onload-title": "onload-title 800ms normal forwards ease-in-out",
       "onload-section": "onload-section 800ms normal forwards ease-in-out",
-      "fade-in": "fade-in 800ms normal forwards ease-in-out"
+      "fade-in": "fade-in 800ms normal forwards ease-in-out",
+      "sidebar-open": "sidebar-open 300ms normal forwards ease-in-out",
+      "sidebar-close": "sidebar-close 300ms normal forwards ease-in-out",
+
     },
     keyframes: {
       "fade-in": {
@@ -36,6 +39,22 @@ module.exports = {
         "100%": {
           opacity: 1,
           transform: "translate(0px,0px)"
+        }
+      },
+      "sidebar-open": {
+        "0%": {
+          right: '-80%',
+        },
+        "100%": {
+          right: '0',
+        }
+      },
+      "sidebar-close": {
+        "0%": {
+          right: '0',
+        },
+        "100%": {
+          right: '-80%',
         }
       }
     },

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import logo from '../public/images/logo-m.svg'
 import harmburgerIcon from '../public/images/hamburger-icon.svg'
@@ -9,7 +9,6 @@ import companyBoom from '../public/images/1.svg';
 import companyQrco from '../public/images/2.svg';
 import companyBlimp from '../public/images/3.svg';
 import companyDroplet from '../public/images/5.svg';
-import nftThumbnail from '../public/images/nft-thumbnail.png'
 import girlWithGreenShirt from '../public/images/girl-with-green-shirt.png'
 import fbIcon from '../public/images/facebook.svg';
 import twitterIcon from '../public/images/twitter.svg';
@@ -18,7 +17,12 @@ import tiktokIcon from '../public/images/tiktok.svg';
 
 import Image from 'next/image';
 
+import NFTCardComponent from '../components/shared/NFTCard';
+import BackdropComponent from '../components/shared/Backdrop';
+
 const HomePage = () => {
+  const [openSidebar, setOpenSidebar] = useState();
+
   useEffect(() => {
     if (document) {
       const sections = document.querySelectorAll('.section')
@@ -33,12 +37,19 @@ const HomePage = () => {
           }
         })
 
-      }, { threshold: 1 })
+      }, { threshold: 0.3 })
       sections.forEach(section => {
         scrollIntersection.observe(section)
       })
     }
   }, [])
+
+  const isSidebarOpened = (cssTrueConditionString, cssFalseConditionString) => {
+    if (typeof openSidebar === 'undefined')
+      return;
+
+    return openSidebar ? cssTrueConditionString : cssFalseConditionString
+  }
 
   return (
     <>
@@ -52,20 +63,30 @@ const HomePage = () => {
         <link rel="preload" as="font" href="/fonts/Inter-Bold.ttf" crossOrigin="anonymous" />
         <link rel="preload" as="font" href="/fonts/Inter-SemiBold.ttf" crossOrigin="anonymous" />
       </Head>
-      <div className="font-inter relative">
+      <div className="font-inter relative overflow-x-hidden">
         <nav className="desktop:px-[5rem] desktop:flex px-[2rem] pt-[2rem] flex items-center justify-between">
           <div className="h-[3rem]">
             <Image alt="nft landing page logo" src={logo} />
           </div>
           <div className="desktop:animate-onload-title desktop:flex desktop:flex-row hidden">
-            <p className="font-inter text-[1.25rem] leading-[1rem] text-dark">Features</p>
-            <p className="ml-[1.75rem] font-inter text-[1.25rem] leading-[1rem] text-dark">About</p>
-            <p className="ml-[1.75rem] font-inter text-[1.25rem] leading-[1rem] text-dark">Launch</p>
-            <p className="ml-[1.75rem] font-inter text-[1.25rem] leading-[1rem] text-pink">Sign Up</p>
+            <p className="font-inter text-[1.25rem]  py-[0.25rem] leading-[1.25rem] text-dark hover:text-pink hover:cursor-pointer">Features</p>
+            <p className="ml-[1.75rem] font-inter text-[1.25rem] py-[0.25rem] leading-[1.25rem] text-dark hover:text-pink hover:cursor-pointer">About</p>
+            <p className="ml-[1.75rem] font-inter text-[1.25rem] py-[0.25rem] leading-[1.25rem] text-dark hover:text-pink hover:cursor-pointer">Launch</p>
+            <p className="ml-[1.75rem] font-inter text-[1.25rem] py-[0.25rem] leading-[1.25rem] text-pink hover:text-pink hover:cursor-pointer">Sign Up</p>
           </div>
           <div className="desktop:hidden flex">
-            <Image alt="mobile menu" src={harmburgerIcon} />
+            <Image onClick={() => setOpenSidebar(true)} alt="mobile menu" src={harmburgerIcon} />
           </div>
+          <div className={`desktop:hidden ${isSidebarOpened('animate-sidebar-open', 'animate-sidebar-close')} right-[-80%] px-[2rem] flex-row absolute top-0  w-[80%] h-full bg-white z-50`}>
+            <div onClick={() => setOpenSidebar(false)} className="w-fit my-[1.5rem] pl-0 font-inter text-[1.5rem] leading-[1rem] hover:cursor-pointer outline-none p-[5px]">x</div>
+            <div className="flex flex-col mt-[1rem]">
+              <p className="font-inter my-[1rem] py-[0.25rem] text-[1.25rem] leading-[1rem] text-dark">Features</p>
+              <p className="font-inter my-[1rem] py-[0.25rem] text-[1.25rem] leading-[1rem] text-dark">About</p>
+              <p className="font-inter my-[1rem] py-[0.25rem] text-[1.25rem] leading-[1rem] text-dark">Launch</p>
+              <p className="font-inter my-[1rem] py-[0.25rem] text-[1.25rem] leading-[1rem] text-pink">Sign Up</p>
+            </div>
+          </div>
+          <BackdropComponent isOpen={openSidebar} />
         </nav>
         <div className="animate-onload-section desktop:hidden absolute top-[6.875rem] right-0 h-[17.375rem] w-[11.125rem]">
           <img alt="robot with 2 eyes" src={`/images/hero-img-mobile.png`} />
@@ -97,65 +118,15 @@ const HomePage = () => {
             We have released four limited edition NFTs early which can be bid on via OpenSea.
           </h3>
         </section>
-        <section data-animation="animate-onload-title" className="section desktop:pl-[5rem] desktop:pt-[3.5rem] desktop:pb-[5rem] pl-[2rem] pt-[2.5rem] pb-[5.75rem] overflow-x-auto">
+        <section data-animation="animate-onload-title" className="desktop:pl-0 desktop:mx-[5rem] section  desktop:pt-[3.5rem] desktop:pb-[5rem] pl-[2rem] pt-[2.5rem] pb-[5.75rem] overflow-x-auto">
           <div className="grid grid-flow-col auto-cols-[minmax(18.125rem,1fr)] grid-cols-[repeat(auto-fill,minmax(18.125rem,1fr))] gap-[1.6875rem]">
-            <div className="">
-              <div className="relative h-[17.375rem] w-[100%] ">
-                <Image alt="nft product thumbnail" className="rounded-t-[1rem]" src={nftThumbnail} layout="fill" objectFit='cover' />
-              </div>
-              <div className="bg-[#EEEEEE] rounded-b-[1rem] p-[1.5rem]">
-                <div className="flex items-center justify-between mb-[0.75rem]">
-                  <span className="text-[#FF8139] font-inter-medium text-[0.75rem] leading-[1rem]">GLOOP SERIES</span>
-                  <span className="text-dark-400 font-inter-medium text-[0.75rem] leading-[1rem]">TOP BID</span>
-                </div>
-                <div className="text-dark-400 flex items-center justify-between mb-[0.75rem]">
-                  <p className="text-black font-inter-medium text-[1.25rem] leading-[1rem]">Purple Man</p>
-                  <p className="text-black font-inter-medium text-[1.25rem] leading-[1rem]">2.99 ETH</p>
-                </div>
-                <div className="flex items-center justify-between mb-[0.75rem]">
-                  <p className="text-dark-400 font-inter text-[1.125rem] leading-[1rem]">#12983</p>
-                  <p className="text-dark-400 font-inter text-[1.125rem] leading-[1rem]">1 day left</p>
-                </div>
-              </div>
-            </div>
-            <div className="">
-              <div className="relative h-[17.375rem] w-[100%]">
-                <Image alt="nft product thumbnail" className="rounded-t-[1rem]" src={nftThumbnail} layout="fill" objectFit='cover' />
-              </div>
-              <div className="bg-[#EEEEEE] rounded-b-[1rem] p-[1.5rem]">
-                <div className="flex items-center justify-between mb-[0.75rem]">
-                  <span className="text-[#FF8139] font-inter-medium text-[0.75rem] leading-[1rem]">GLOOP SERIES</span>
-                  <span className="text-dark-400 font-inter-medium text-[0.75rem] leading-[1rem]">TOP BID</span>
-                </div>
-                <div className="text-dark-400 flex items-center justify-between mb-[0.75rem]">
-                  <p className="text-black font-inter-medium text-[1.25rem] leading-[1rem]">Purple Man</p>
-                  <p className="text-black font-inter-medium text-[1.25rem] leading-[1rem]">2.99 ETH</p>
-                </div>
-                <div className="flex items-center justify-between mb-[0.75rem]">
-                  <p className="text-dark-400 font-inter text-[1.125rem] leading-[1rem]">#12983</p>
-                  <p className="text-dark-400 font-inter text-[1.125rem] leading-[1rem]">1 day left</p>
-                </div>
-              </div>
-            </div>
-            <div className="">
-              <div className="relative h-[17.375rem] w-[100%]">
-                <Image alt="nft product thumbnail" className="rounded-t-[1rem]" src={nftThumbnail} layout="fill" objectFit='cover' />
-              </div>
-              <div className="bg-[#EEEEEE] rounded-b-[1rem] p-[1.5rem]">
-                <div className="flex items-center justify-between mb-[0.75rem]">
-                  <span className="text-[#FF8139] font-inter-medium text-[0.75rem] leading-[1rem]">GLOOP SERIES</span>
-                  <span className="text-dark-400 font-inter-medium text-[0.75rem] leading-[1rem]">TOP BID</span>
-                </div>
-                <div className="text-dark-400 flex items-center justify-between mb-[0.75rem]">
-                  <p className="text-black font-inter-medium text-[1.25rem] leading-[1rem]">Purple Man</p>
-                  <p className="text-black font-inter-medium text-[1.25rem] leading-[1rem]">2.99 ETH</p>
-                </div>
-                <div className="flex items-center justify-between mb-[0.75rem]">
-                  <p className="text-dark-400 font-inter text-[1.125rem] leading-[1rem]">#12983</p>
-                  <p className="text-dark-400 font-inter text-[1.125rem] leading-[1rem]">1 day left</p>
-                </div>
-              </div>
-            </div>
+            <NFTCardComponent />
+            <NFTCardComponent />
+            <NFTCardComponent />
+            <NFTCardComponent />
+            <NFTCardComponent />
+            <NFTCardComponent />
+            <NFTCardComponent />
           </div>
         </section>
         <section className="desktop:mx-[5rem] desktop:pt-[5rem] relative border-y-2 border-[#EEEEEE] pb-[5rem]">
