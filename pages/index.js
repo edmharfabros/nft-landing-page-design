@@ -56,7 +56,6 @@ const HomePage = () => {
       <Head>
         <title>NFT Landing Page | Sample Design</title>
         <link rel="preload" as="image" href="/images/hero-img-mobile.png" />
-        <link rel="preload" as="image" href="/images/hero-img-desktop.png" />
         <link rel="preload" as="font" href="/fonts/Inter-Regular.ttf" crossOrigin="anonymous" />
         <link rel="preload" as="font" href="/fonts/Inter-Black.ttf" crossOrigin="anonymous" />
         <link rel="preload" as="font" href="/fonts/Inter-Medium.ttf" crossOrigin="anonymous" />
