@@ -88,10 +88,10 @@ const HomePage = () => {
           </div>
           <BackdropComponent isOpen={openSidebar} />
         </nav>
-        <div className="animate-onload-section desktop:hidden absolute top-[6.875rem] right-0 h-[17.375rem] w-[11.125rem]">
+        <div className="desktop:hidden absolute top-[6.875rem] right-0 h-[17.375rem] w-[11.125rem]">
           <img alt="robot with 2 eyes" src={`/images/hero-img-mobile.png`} />
         </div>
-        <div className="animate-onload-section desktop:block desktop:right-[16%] hidden absolute top-[13.375rem] right-0 h-[32.4375rem] w-[20.5rem]">
+        <div className="desktop:block desktop:right-[16%] hidden absolute top-[13.375rem] right-0 h-[32.4375rem] w-[20.5rem]">
           <img alt="robot with 2 eyes" src={`/images/hero-img-desktop.png`} />
         </div>
         <section className="animate-onload-title desktop:pl-[5rem] desktop:pr-[50%] desktop:pb-[12.5rem] desktop:pt-[11.375rem] relative px-[2rem] pt-[5rem] pr-[30%] pb-[5rem] desktop:min-h-[calc(100vh_-_5rem)]">
