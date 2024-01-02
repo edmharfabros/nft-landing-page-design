@@ -4,6 +4,8 @@
 
 This project is a minimalistic Next.js application for creating a simple landing page. It is designed to be easy to set up and customize, making it a great starting point for your project.
 
+[Live Demo](https://nft-landing-page-design.vercel.app)
+
 ## Getting Started
 
 ### Prerequisites
